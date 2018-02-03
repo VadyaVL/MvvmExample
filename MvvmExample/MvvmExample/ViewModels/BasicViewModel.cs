@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 
 namespace MvvmExample.ViewModels
 {
-    public abstract class BasicVm : INotifyPropertyChanged
+    public abstract class BasicViewModel : INotifyPropertyChanged
     {
         protected IEmailService EmailService { get; set; }
 

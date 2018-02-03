@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace MvvmExample.ViewModels
 {
-    public class EmailVm : BasicVm
+    public class EmailViewModel : BasicViewModel
     {
         #region Fields
 
@@ -53,7 +53,7 @@ namespace MvvmExample.ViewModels
 
         #region Constructors
 
-        public EmailVm(IEmailService emailService)
+        public EmailViewModel(IEmailService emailService)
         {
             this.EmailService = emailService;
 

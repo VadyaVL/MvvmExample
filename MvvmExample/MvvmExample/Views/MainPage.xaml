@@ -4,15 +4,19 @@
              xmlns:local="clr-namespace:MvvmExample"
              
              x:Class="MvvmExample.Views.MainPage"
-             BindingContext="{Binding Source={StaticResource Locator}, Path=Email}">
+             xmlns:behaviorsPack="clr-namespace:Xamarin.Forms.BehaviorsPack;assembly=Xamarin.Forms.BehaviorsPack"
+             BindingContext="{Binding Source={StaticResource Locator}, Path=Main}">
+
+
+    <ContentPage.Behaviors>
+        <behaviorsPack:EventToCommandBehavior EventName="Appearing"
+                                              Command="{Binding Initialize}"/>
+    </ContentPage.Behaviors>
 
     <StackLayout VerticalOptions="FillAndExpand">
-    
-    <Label Text="{Binding AddressFrom}"/>
-    <Label Text="{Binding AddressTo}"/>
-    <Label Text="{Binding Message}"/>
-
-    <Button Text="Send" VerticalOptions="EndAndExpand" Command="{Binding Send}"/>
+        <Label Text="Wait..."
+               VerticalOptions="CenterAndExpand" 
+               HorizontalOptions="CenterAndExpand"/>
     </StackLayout>
-
+    
 </ContentPage>
