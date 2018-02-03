@@ -8,7 +8,7 @@
 
 		<!-- Application resource dictionary -->
         <ResourceDictionary>
-            <locator:Locator x:Key="locator"/>
+            <locator:Locator x:Key="Locator"/>
         </ResourceDictionary>
 
 	</Application.Resources>

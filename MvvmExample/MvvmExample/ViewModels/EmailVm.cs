@@ -1,21 +1,19 @@
 ﻿using MvvmExample.Models;
 using MvvmExample.Services;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace MvvmExample.ViewModels
 {
-    public class EmailVm : BasicVm, INotifyPropertyChanged
+    public class EmailVm : BasicVm
     {
         #region Fields
 
-        private string addressFrom;
+        private string _addressFrom;
 
-        private string addressTo;
+        private string _addressTo;
 
-        private string message;
+        private string _message;
 
         #endregion
 
@@ -23,30 +21,30 @@ namespace MvvmExample.ViewModels
 
         public string AddressFrom
         {
-            get => this.addressFrom;
+            get => this._addressFrom;
             set
             {
-                this.addressFrom = value;
+                this._addressFrom = value;
                 this.OnPropertyChanged();
             }
         }
 
         public string AddressTo
         {
-            get => this.addressTo;
+            get => this._addressTo;
             set
             {
-                this.addressTo = value;
+                this._addressTo = value;
                 this.OnPropertyChanged();
             }
         }
 
         public string Message
         {
-            get => this.message;
+            get => this._message;
             set
             {
-                this.message = value;
+                this._message = value;
                 this.OnPropertyChanged();
             }
         }
@@ -62,17 +60,6 @@ namespace MvvmExample.ViewModels
             this.AddressFrom = "vadyavl@gmail.com";
             this.AddressTo = "ivanmr@ukr.net";
             this.Message = "Hello MVVM!";
-        }
-
-        #endregion
-
-        #region NotifyPropertyChanged
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         #endregion
