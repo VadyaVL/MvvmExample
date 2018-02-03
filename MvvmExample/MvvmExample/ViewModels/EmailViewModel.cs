@@ -1,5 +1,6 @@
 ﻿using MvvmExample.Models;
 using MvvmExample.Services;
+using System.Diagnostics;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -55,6 +56,10 @@ namespace MvvmExample.ViewModels
 
         public EmailViewModel(INavigationService navService, IEmailService emailService) : base(navService)
         {
+#if DEBUG
+            Debug.WriteLine(this.GetType().Name);
+#endif
+
             this.EmailService = emailService;
 
             this.AddressFrom = "vadyavl@gmail.com";

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage   xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    x:Class="MvvmExample.Views.UserPage"
+                    
+                    IsPresented="{Binding IsPresented}"
+                    xmlns:behaviorsPack="clr-namespace:Xamarin.Forms.BehaviorsPack;assembly=Xamarin.Forms.BehaviorsPack"
+                    BindingContext="{Binding Source={StaticResource Locator}, Path=User}">
+    <!-- DetailPage="{Binding Detail}" -->
+
+    <MasterDetailPage.Behaviors>
+        <behaviorsPack:EventToCommandBehavior EventName="Appearing"
+                                              Command="{Binding Initialize}"/>
+    </MasterDetailPage.Behaviors>
+
+    <MasterDetailPage.Master>
+        <ContentPage Title="UserPage"  BackgroundColor="#f7f5f5">
+            <StackLayout VerticalOptions="FillAndExpand">
+                <ListView   VerticalOptions="FillAndExpand"
+                            HasUnevenRows="True"
+                            SeparatorVisibility="Default"
+                            BackgroundColor="#f7f5f5"
+                            ItemsSource="{Binding Collection}"
+                            SelectedItem="{Binding SelectedItem}" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Label Text="{Binding Title}" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ContentPage>
+    </MasterDetailPage.Master>
+    
+    <MasterDetailPage.Detail>
+        <ContentPage>
+            <StackLayout VerticalOptions="FillAndExpand">
+                <Label Text="Default"/>
+            </StackLayout>
+        </ContentPage>
+    </MasterDetailPage.Detail>
+    
+</MasterDetailPage>

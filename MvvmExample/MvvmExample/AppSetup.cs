@@ -57,6 +57,7 @@ namespace MvvmExample
         {
             // View-Models
             cb.RegisterType<MainViewModel>();
+            cb.RegisterType<UserViewModel>();
             cb.RegisterType<EmailViewModel>();
             cb.RegisterType<DetailViewModel>();
 
@@ -71,6 +72,7 @@ namespace MvvmExample
             var dictonary = new Dictionary<Type, Type>
             {
                 { typeof(MainViewModel), typeof(MainPage) },
+                { typeof(UserViewModel), typeof(UserPage) },
                 { typeof(EmailViewModel), typeof(EmailPage) },
                 { typeof(DetailViewModel), typeof(DetailPage) },
             };

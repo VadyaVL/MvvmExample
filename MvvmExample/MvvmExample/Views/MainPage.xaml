@@ -7,7 +7,6 @@
              xmlns:behaviorsPack="clr-namespace:Xamarin.Forms.BehaviorsPack;assembly=Xamarin.Forms.BehaviorsPack"
              BindingContext="{Binding Source={StaticResource Locator}, Path=Main}">
 
-
     <ContentPage.Behaviors>
         <behaviorsPack:EventToCommandBehavior EventName="Appearing"
                                               Command="{Binding Initialize}"/>

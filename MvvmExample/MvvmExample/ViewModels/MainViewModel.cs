@@ -24,12 +24,12 @@ namespace MvvmExample.ViewModels
             {
                 return new Command(() =>
                 {
-
                     // Some logic
                     // Auth - open page A
                     // NotAuth - open page B
 
-                    this.NavigationService.SetRootPage(typeof(EmailViewModel));
+                    //this.NavigationService.SetRootPage(typeof(EmailViewModel));
+                    this.NavigationService.SetRootPage(typeof(UserViewModel));
                 });
             }
         }

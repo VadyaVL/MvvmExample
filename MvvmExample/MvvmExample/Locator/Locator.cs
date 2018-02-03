@@ -7,6 +7,8 @@ namespace MvvmExample.Locator
     {
         public MainViewModel Main => AppContainer.Container.Resolve<MainViewModel>();
 
+        public UserViewModel User => AppContainer.Container.Resolve<UserViewModel>();
+
         public EmailViewModel Email  => AppContainer.Container.Resolve<EmailViewModel>();
 
         public DetailViewModel Detail => AppContainer.Container.Resolve<DetailViewModel>();

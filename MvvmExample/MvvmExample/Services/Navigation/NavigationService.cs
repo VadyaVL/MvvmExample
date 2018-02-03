@@ -6,7 +6,19 @@ namespace MvvmExample.Services
 {
     public class NavigationService : INavigationService
     {
+        #region Fields
+
         private INavigation _navigation;
+
+        #endregion
+
+        #region Pros
+
+        public bool IsRootMasterDetail => App.Current.MainPage is MasterDetailPage;
+
+        #endregion
+
+        #region Methods
 
         public async Task PopAsync()
         {
@@ -44,5 +56,7 @@ namespace MvvmExample.Services
                 this._navigation = page.Navigation;
             }
         }
+
+        #endregion
     }
 }
