@@ -53,7 +53,7 @@ namespace MvvmExample.ViewModels
 
         #region Constructors
 
-        public EmailViewModel(IEmailService emailService)
+        public EmailViewModel(INavigationService navService, IEmailService emailService) : base(navService)
         {
             this.EmailService = emailService;
 
@@ -88,11 +88,17 @@ namespace MvvmExample.ViewModels
             }
         }
 
+        public ICommand OpenDetail
+        {
+            get
+            {
+                return new Command(async () =>
+                {
+                    await this.NavigationService.PushAsync(typeof(DetailViewModel));
+                });
+            }
+        }
+
         #endregion
-
-        #region 
-
-        #endregion
-
     }
 }

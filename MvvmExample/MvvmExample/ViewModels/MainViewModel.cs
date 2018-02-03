@@ -1,4 +1,5 @@
-﻿using MvvmExample.Views;
+﻿using MvvmExample.Services;
+using MvvmExample.Views;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -8,7 +9,7 @@ namespace MvvmExample.ViewModels
     {
         #region Constructors
 
-        public MainViewModel()
+        public MainViewModel(INavigationService navService) : base(navService)
         {
             // Init Services
         }
@@ -28,7 +29,7 @@ namespace MvvmExample.ViewModels
                     // Auth - open page A
                     // NotAuth - open page B
 
-                    App.Current.MainPage = new EmailPage();
+                    this.NavigationService.SetRootPage(typeof(EmailViewModel));
                 });
             }
         }

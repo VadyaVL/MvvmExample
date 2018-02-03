@@ -11,7 +11,8 @@
         <Entry Text="{Binding AddressTo}"/>
         <Entry Text="{Binding Message}"/>
 
-        <Button Text="Send" VerticalOptions="EndAndExpand" Command="{Binding Send}"/>
+        <Button Text="Detail" VerticalOptions="EndAndExpand" Command="{Binding OpenDetail}"/>
+        <Button Text="Send" VerticalOptions="End" Command="{Binding Send}"/>
 
     </StackLayout>
 

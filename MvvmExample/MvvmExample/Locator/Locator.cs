@@ -5,14 +5,10 @@ namespace MvvmExample.Locator
 {
     public class Locator
     {
-        public MainViewModel Main
-        {
-            get => AppContainer.Container.Resolve<MainViewModel>();
-        }
+        public MainViewModel Main => AppContainer.Container.Resolve<MainViewModel>();
 
-        public EmailViewModel Email
-        {
-            get => AppContainer.Container.Resolve<EmailViewModel>();
-        }
+        public EmailViewModel Email  => AppContainer.Container.Resolve<EmailViewModel>();
+
+        public DetailViewModel Detail => AppContainer.Container.Resolve<DetailViewModel>();
     }
 }

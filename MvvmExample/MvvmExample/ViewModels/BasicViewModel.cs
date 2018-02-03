@@ -6,7 +6,22 @@ namespace MvvmExample.ViewModels
 {
     public abstract class BasicViewModel : INotifyPropertyChanged
     {
+        #region Services
+
         protected IEmailService EmailService { get; set; }
+
+        protected INavigationService NavigationService { get; set; }
+
+        #endregion
+
+        #region Constructors
+
+        public BasicViewModel(INavigationService navigationService)
+        {
+            this.NavigationService = navigationService;
+        }
+
+        #endregion
 
         #region NotifyPropertyChanged
 
