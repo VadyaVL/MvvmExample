@@ -57,9 +57,10 @@ namespace MvvmExample
         {
             // View-Models
             cb.RegisterType<MainViewModel>();
-            cb.RegisterType<UserViewModel>();
+            cb.RegisterType<UserViewModel>().SingleInstance();   // https://github.com/xamarin/Xamarin.Forms/issues/1434
             cb.RegisterType<EmailViewModel>();
             cb.RegisterType<DetailViewModel>();
+            cb.RegisterType<SettingViewModel>();
 
             // Services
             cb.RegisterType<NavigationService>().As<INavigationService>().SingleInstance(); // Must be SingleInstance
@@ -75,6 +76,7 @@ namespace MvvmExample
                 { typeof(UserViewModel), typeof(UserPage) },
                 { typeof(EmailViewModel), typeof(EmailPage) },
                 { typeof(DetailViewModel), typeof(DetailPage) },
+                { typeof(SettingViewModel), typeof(SettingPage) },
             };
 
             return dictonary;

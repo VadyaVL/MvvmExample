@@ -7,7 +7,9 @@
 	<Application.Resources>
 
 		<!-- Application resource dictionary -->
+
         <ResourceDictionary>
+            <!-- Error: https://github.com/xamarin/Xamarin.Forms/pull/470 -->
             <locator:Locator x:Key="Locator"/>
         </ResourceDictionary>
 

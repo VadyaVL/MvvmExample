@@ -2,12 +2,14 @@
 <MasterDetailPage   xmlns="http://xamarin.com/schemas/2014/forms"
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                     x:Class="MvvmExample.Views.UserPage"
-                    
                     IsPresented="{Binding IsPresented}"
+                    
                     xmlns:behaviorsPack="clr-namespace:Xamarin.Forms.BehaviorsPack;assembly=Xamarin.Forms.BehaviorsPack"
-                    BindingContext="{Binding Source={StaticResource Locator}, Path=User}">
+                    BindingContext="{Binding Source={StaticResource Locator}, Path=User}"
+                    >
+    <!-- BindingContext="{Binding Source={StaticResource Locator}, Path=User}" -->
     <!-- DetailPage="{Binding Detail}" -->
-
+    
     <MasterDetailPage.Behaviors>
         <behaviorsPack:EventToCommandBehavior EventName="Appearing"
                                               Command="{Binding Initialize}"/>

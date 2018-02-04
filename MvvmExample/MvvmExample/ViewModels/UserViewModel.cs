@@ -74,7 +74,12 @@ namespace MvvmExample.ViewModels
             {
                 return new Command(() =>
                 {
-                    this.SelectedItem = this.Collection.FirstOrDefault(x => x.TargetType == typeof(EmailViewModel));
+                    var newItem = this.Collection.FirstOrDefault(x => x.TargetType == typeof(EmailViewModel));
+
+                    if(this.SelectedItem != newItem)
+                    {
+                        this.SelectedItem = newItem;
+                    }
                 });
             }
         }
@@ -94,8 +99,14 @@ namespace MvvmExample.ViewModels
                 Title = "Email",
                 TargetType = typeof(EmailViewModel),
             };
+            var pageSetting = new MenuItemViewModel()
+            {
+                Title = "Setting",
+                TargetType = typeof(SettingViewModel),
+            };
 
             this.Collection.Add(pageEmail);
+            this.Collection.Add(pageSetting);
         }
 
         #endregion

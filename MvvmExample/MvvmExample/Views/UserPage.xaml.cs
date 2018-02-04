@@ -36,12 +36,10 @@ namespace MvvmExample.Views
         public UserPage()
         {
             InitializeComponent();
+
+            //var locator = new Locator.Locator();
+            //this.BindingContext = locator.User;
         }
 
-        protected override void OnBindingContextChanged()
-        {
-            base.OnBindingContextChanged();
-
-        }
     }
 }

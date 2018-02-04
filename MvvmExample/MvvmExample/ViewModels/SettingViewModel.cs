@@ -4,16 +4,16 @@ using Xamarin.Forms;
 
 namespace MvvmExample.ViewModels
 {
-    public class DetailViewModel : BasicViewModel
+    public class SettingViewModel : BasicViewModel
     {
         #region Fields
-        
+
         private string _message;
 
         #endregion
 
         #region Properties
-        
+
         public string Message
         {
             get => this._message;
@@ -28,9 +28,9 @@ namespace MvvmExample.ViewModels
 
         #region Constructors
 
-        public DetailViewModel(INavigationService navService) : base(navService)
+        public SettingViewModel(INavigationService navService) : base(navService)
         {
-            this.Message = "DetailPage";
+            this.Message = "SettingPage";
         }
 
         #endregion

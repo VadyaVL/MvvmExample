@@ -4,7 +4,7 @@
              x:Class="MvvmExample.Views.EmailPage"
              
              BindingContext="{Binding Source={StaticResource Locator}, Path=Email}">
-
+    
     <StackLayout VerticalOptions="FillAndExpand">
 
         <Entry Text="{Binding AddressFrom}"/>

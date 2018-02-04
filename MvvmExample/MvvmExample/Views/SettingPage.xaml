@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MvvmExample.Views.DetailPage"
+             x:Class="MvvmExample.Views.SettingPage"
              
-             BindingContext="{Binding Source={StaticResource Locator}, Path=Detail}">
-    
+             BindingContext="{Binding Source={StaticResource Locator}, Path=Setting}">
+
     <StackLayout VerticalOptions="FillAndExpand">
-            <Label Text="{Binding Message}"
+        <Label Text="{Binding Message}"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    
-    
+    </StackLayout>
+
+
 </ContentPage>
