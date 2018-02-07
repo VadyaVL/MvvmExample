@@ -1,23 +1,18 @@
-﻿using Autofac;
+﻿using FreshMvvm;
 using MvvmExample.ViewModels;
 
 namespace MvvmExample.Locator
 {
     public class Locator
     {
-        public Locator()
-        {
+        public MainViewModel Main => FreshIOC.Container.Resolve<MainViewModel>();
 
-        }
+        public UserViewModel User => FreshIOC.Container.Resolve<UserViewModel>();
 
-        public MainViewModel Main => AppContainer.Container.Resolve<MainViewModel>();
+        public EmailViewModel Email  => FreshIOC.Container.Resolve<EmailViewModel>();
 
-        public UserViewModel User => AppContainer.Container.Resolve<UserViewModel>();
+        public DetailViewModel Detail => FreshIOC.Container.Resolve<DetailViewModel>();
 
-        public EmailViewModel Email  => AppContainer.Container.Resolve<EmailViewModel>();
-
-        public DetailViewModel Detail => AppContainer.Container.Resolve<DetailViewModel>();
-
-        public SettingViewModel Setting => AppContainer.Container.Resolve<SettingViewModel>();
+        public SettingViewModel Setting => FreshIOC.Container.Resolve<SettingViewModel>();
     }
 }

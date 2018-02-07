@@ -1,4 +1,4 @@
-﻿using Autofac;
+﻿using FreshMvvm;
 using MvvmExample.Services;
 using MvvmExample.ViewModels;
 using MvvmExample.Views;
@@ -10,6 +10,8 @@ namespace MvvmExample
     public class AppSetup
     {
         private static AppSetup _instance;
+
+        private bool _isIocInitialize;
 
         public static AppSetup Instance
         {
@@ -31,9 +33,9 @@ namespace MvvmExample
 
         public void InitializeApp()
         {
-            if (AppContainer.Container == null)
+            if (!_isIocInitialize)
             {
-                AppContainer.Container = this.CreateContainer();
+                this.InitIoC();
             }
 
             // Init Navigation Keys
@@ -43,28 +45,18 @@ namespace MvvmExample
             }
         }
 
-        protected IContainer CreateContainer()
-        {
-            var containerBuilder = new ContainerBuilder();
-
-            this.RegisterDependencies(containerBuilder);
-            // Call another with containerBuilder
-
-            return containerBuilder.Build();
-        }
-
-        protected virtual void RegisterDependencies(ContainerBuilder cb)
+        private void InitIoC()
         {
             // View-Models
-            cb.RegisterType<MainViewModel>();
-            cb.RegisterType<UserViewModel>().SingleInstance();   // https://github.com/xamarin/Xamarin.Forms/issues/1434
-            cb.RegisterType<EmailViewModel>();
-            cb.RegisterType<DetailViewModel>();
-            cb.RegisterType<SettingViewModel>();
+            FreshIOC.Container.Register<MainViewModel>();
+            FreshIOC.Container.Register<UserViewModel>().AsSingleton();
+            FreshIOC.Container.Register<EmailViewModel>();
+            FreshIOC.Container.Register<DetailViewModel>();
+            FreshIOC.Container.Register<SettingViewModel>();
 
             // Services
-            cb.RegisterType<NavigationService>().As<INavigationService>().SingleInstance(); // Must be SingleInstance
-            cb.RegisterType<EmailService>().As<IEmailService>().SingleInstance();
+            FreshIOC.Container.Register<NavigationService>().As<INavigationService>().AsSingleton(); // Must be SingleInstance
+            FreshIOC.Container.Register<EmailService>().As<IEmailService>();
         }
 
         // Create Dictonary<VMType, VType>
